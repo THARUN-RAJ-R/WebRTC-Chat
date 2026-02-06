@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebRTC Text Chat</title>
+</head>
+<body>
+
+<h2>WebRTC Text Chat </h2>
+
+
+<button onclick="SendOffer()">Create Offer</button>
+<button onclick="SendAnswer()">Create Answer</button><br>
+<button onclick="CheckOffer()">Check Offer</button>
+<button onclick="CheckAnswer()">Check Answer</button><br>
+
+
+<hr>
+<input id="message" placeholder="Type message">
+<button onclick="sendMessage()">Send</button>
+
+<pre id="chat"></pre>
+
+<script src="app.js"></script>
+</body>
+</html>
