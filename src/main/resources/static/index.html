@@ -1,26 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>WebRTC Text Chat</title>
+    <title>WebRTC Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Open Sans ExtraBold';
+            font-style: normal;
+            font-weight: 800;
+            src: url('chrome-extension://gkkdmjjodidppndkbkhhknakbeflbomf/fonts/open_sans/open-sans-v18-latin-800.woff');
+            background: linear-gradient(135deg, #f1ecb8, #f1ecb8);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .card {
+            background: #facf25;
+            padding: 40px;
+            width: 350px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .create {
+            border: 1px solid black; 
+            background: #facf25; 
+            color: rgb(10, 10, 10);
+        }
+        .join { background: black; 
+            color: rgb(246, 246, 246);
+        }
+
+        #errorMessage {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
 
-<h2>WebRTC Text Chat </h2>
+<div class="card">
+    <h2>WebRTC Chat</h2>
 
+    <input id="room" placeholder="Room ID">
+    <input id="password" type="password" placeholder="Password">
 
-<button onclick="SendOffer()">Create Offer</button>
-<button onclick="SendAnswer()">Create Answer</button><br>
-<button onclick="CheckOffer()">Check Offer</button>
-<button onclick="CheckAnswer()">Check Answer</button><br>
+    <button class="btn create" onclick="createRoom()">Create Room</button>
+    <button class="btn join" onclick="joinRoom()">Join Room</button>
 
+    <!-- Hidden username -->
+    <input id="username" placeholder="Enter Username" style="display:none;">
+    <button id="confirmBtn" class="btn create" style="display:none;" onclick="confirmUser()">Continue</button>
 
-<hr>
-<input id="message" placeholder="Type message">
-<button onclick="sendMessage()">Send</button>
+    <p id="errorMessage"></p>
+</div>
 
-<pre id="chat"></pre>
+<script src="index.js"></script>
 
-<script src="app.js"></script>
 </body>
 </html>
